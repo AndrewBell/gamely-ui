@@ -1,0 +1,13 @@
+### IntelliJ
+*.iml
+.idea/
+
+### Generated js
+*.js
+*.js.map
+
+### Node
+/node_modules
+
+### TS
+/typings
