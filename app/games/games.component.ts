@@ -1,9 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Game } from "./game";
+import { GamesService } from "./games.service";
 
 @Component({
     selector: 'gamely-games',
-    template: `<p>Title: {{game}}</p>`
+    templateUrl: 'app/games/games.html',
+    providers: [GamesService]
 })
 export class GamesComponent {
-    game = "my cool game"
+    games: Game[];
+    error: any;
+
+    constructor(private gamesService:GamesService) {
+    }
+
+    ngOnInit() {
+        this.getGames();
+    }
+
+    getGames() {
+        this.gamesService
+            .getGames()
+            .then(games => {
+                console.log("Games Got: " + games);
+                this.games = games
+            })
+            .catch(error => this.error = error);
+    }
+
 }
