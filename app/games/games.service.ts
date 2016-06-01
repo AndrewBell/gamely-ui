@@ -5,7 +5,6 @@ import { Game } from './game';
 @Injectable()
 export class GamesService {
     getGames() {
-        console.log('Getting games: ' + GAMES);
         return Promise.resolve(GAMES);
     }
 }

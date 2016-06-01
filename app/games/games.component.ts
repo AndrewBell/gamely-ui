@@ -22,10 +22,7 @@ export class GamesComponent {
     getGames() {
         this.gamesService
             .getGames()
-            .then(games => {
-                console.log("Games Got: " + games);
-                this.games = games
-            })
+            .then(games => this.games = games)
             .catch(error => this.error = error);
     }
 
